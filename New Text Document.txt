@@ -1,0 +1,92 @@
+package com.mycompany.app;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+ 
+
+ 
+public class BookTest {
+     
+    Object[] expectedEm = new Object[3];                                               //https://www.tutorialspoint.com/junit/junit_writing_tests.htm
+     
+    @Before
+    public void initInputs(){
+        expectedEm[0] = new Book(1, "koyel","rana","zz",15);
+        expectedEm[1] = new Book(2, "vijay", "bhaskar","yy",25);
+        expectedEm[2] = new Book(3, "Krish","d","xx" ,50);
+    }
+     
+    @Test
+    public void compareBooks(){
+       
+        Object[] testOutput = Book.getBookList().toArray();
+        assertArrayEquals(expectedEm, testOutput);
+    }
+}
+----------------------------------------------------------------------------------------------
+package com.mycompany.app;
+//import java.awt.print.Book;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+//import org.junit.runners.Parameterized;
+
+//import org.junit.runners.Parameterized.Parameter;
+
+//import org.junit.runners.Parameterized.Parameters;
+
+
+
+class Book {
+private int id;
+private String name, author, publisher;
+private int qt;
+        Book(int id,String name,String author,String publisher,int qt)
+        {
+            this.id=id;
+            this.name=name;
+            this.author=author;
+            this.publisher=publisher;
+            this.qt=qt;
+        }
+        public static List<Book> getBookList(){
+        List<Book> ob = new ArrayList<Book>();
+        ob.add(new Book(1, "koyel","rana","zz",15));
+        ob.add(new Book(2, "vijay", "bhaskar","yy",25));
+        ob.add(new Book(3, "Krish","d","xx" ,50));
+        return ob;
+    }
+ 
+     
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getid() {
+        return id;
+    }
+    public void setid(int id) {
+        this.id = id;
+    }
+    public String getautgor() {
+        return author;
+    }
+    public void setauthor(String author) {
+        this.author = author;
+    }
+     public String getpublisher() {
+        return publisher;
+    }
+    public void setpublisher(String publisher) {
+        this.publisher = publisher;
+    }
+    public int getqt() {
+        return qt;
+    }
+    public void setqt(int qt) {
+        this.qt = qt;
+    }
+
+}
